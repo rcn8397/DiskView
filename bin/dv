@@ -5,11 +5,12 @@ import pdb
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from diskview import *
+from diskview.exhume import *
 
 # Main
 def main():
-    print( "hello" )
+    dir_this()
+
     
     
 # Standard biolerplate to call the main() function to begin the program
