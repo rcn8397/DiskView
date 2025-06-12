@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+import os
+import sys
+import pdb
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from diskview import *
+
+# Main
+def main():
+    print( "hello" )
+    
+    
+# Standard biolerplate to call the main() function to begin the program
+if __name__ == '__main__':
+    main()
