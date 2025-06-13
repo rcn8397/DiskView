@@ -9,7 +9,12 @@ from diskview.exhume import *
 
 # Main
 def main():
-    dir_this()
+    ex = Exhume( '.' )
+#    for data in ex.run():
+#        print( data.label, data.size )
+    ds = ex.run()
+    pdb.set_trace()
+    ds.dump_sorted()
 
     
     
