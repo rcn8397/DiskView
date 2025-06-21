@@ -71,6 +71,12 @@ class Size( object ):
         'gigabyte':1024*1024*1024,
         'terabyte':1024*1024*1024*1024,
     }
+    units={
+        'kilobyte':'kB',
+        'megabyte':'MB',
+        'gigabyte':'GB',
+        'terabyte':'TB',
+    }
     
     def __init__(self, v, mode='megabyte' ):
         self.v = v
@@ -78,10 +84,10 @@ class Size( object ):
 
     @property
     def value( self ):
-        pdb.set_trace()
         mib = self.mib[self.mode]
-        val = self.v/val
-        return val
+        uom = self.units[self.mode]
+        val = self.v/mib
+        return '{:0.4} {}'.format( val, uom )
 
 
 
@@ -95,11 +101,10 @@ class FileSystemDataSet( DataSet ):
             print( key, value.size )
 
     def dump_sorted( self ):
-        for key, value in self.sort():
-            pdb.set_trace()
-            s = Size( value.size )
+        ds = self.sort()
+        for key, value in ds.items():
+            s = Size( value )
             v = s.value
-#            print( key, value.size )
             print( key, v )
 
     def write( self, fname ):
